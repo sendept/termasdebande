@@ -1,9 +1,10 @@
-import { ExternalLink, Droplets, ThermometerSun, Loader2 } from "lucide-react";
+import { ExternalLink, Droplets, ThermometerSun, Loader2, MapPin } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useWaterLevel } from "@/hooks/useWaterLevel";
 
 const FLOOD_THRESHOLD = 70;
+const MAPS_URL = "https://www.google.com/maps/place/Roman+Caldaria+of+Bande+(Hotsprings)/@41.9793225,-7.9818843,130m/data=!3m1!1e3!4m14!1m7!3m6!1s0xd2547bff013a7c7:0xe8fceefffe603cf5!2sRoman+Caldaria+of+Bande+(Hotsprings)!8m2!3d41.9793225!4d-7.9818843!16s%2Fg%2F11b6v6mh3k!3m5!1s0xd2547bff013a7c7:0xe8fceefffe603cf5!8m2!3d41.9793225!4d-7.9818843!16s%2Fg%2F11b6v6mh3k?hl=en&entry=ttu";
 
 const Index = () => {
   const { percentage, loading, error, lastUpdated } = useWaterLevel();
@@ -19,16 +20,22 @@ const Index = () => {
     }`}>
       <div className="max-w-lg w-full text-center space-y-8">
         {/* Header */}
-        <div className="space-y-2">
+        <div className="space-y-3">
           <div className="flex justify-center">
-            <ThermometerSun className={`w-12 h-12 ${isFlooded ? 'text-amber-600' : 'text-emerald-600'}`} />
+            <ThermometerSun className={`w-12 h-12 ${isFlooded ? 'text-amber-600' : isAccessible ? 'text-emerald-600' : 'text-stone-600'}`} />
           </div>
           <h1 className="text-3xl font-light text-stone-800 tracking-tight">
             Termas de Bande
           </h1>
-          <p className="text-stone-500 text-sm">
+          <a 
+            href={MAPS_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-stone-500 hover:text-stone-700 text-sm transition-colors"
+          >
+            <MapPin className="w-4 h-4" />
             Embalse Las Conchas, Galicia
-          </p>
+          </a>
         </div>
 
         {/* Status Card */}
@@ -99,7 +106,13 @@ const Index = () => {
                 {/* Last updated */}
                 {lastUpdated && (
                   <p className="text-xs text-stone-400">
-                    Actualizado: {lastUpdated.toLocaleTimeString('es-ES')}
+                    Última actualización: {lastUpdated.toLocaleString('es-ES', {
+                      day: 'numeric',
+                      month: 'short',
+                      year: 'numeric',
+                      hour: '2-digit',
+                      minute: '2-digit'
+                    })}
                   </p>
                 )}
               </>
@@ -107,12 +120,22 @@ const Index = () => {
           </CardContent>
         </Card>
 
+        {/* Info Section */}
+        <div className="text-left bg-white/60 backdrop-blur rounded-xl p-6 space-y-4">
+          <p className="text-sm text-stone-600 leading-relaxed">
+            Las Termas de Bande se encuentran inundadas en algunas épocas del año debido a la presa cercana, lo que significa que no se puede acceder a ellas. Esta web monitoriza el nivel del agua para que sepas cuándo visitarlas. Los datos provienen de estaciones de monitorización locales.
+          </p>
+          <p className="text-sm text-stone-600 leading-relaxed">
+            El acceso a las termas es gratuito, pero por favor mantenlo limpio y no enciendas fuego.
+          </p>
+        </div>
+
         {/* Footer */}
         <a 
           href="https://www.embalses.net/pantano-706-las-conchas.html"
           target="_blank"
           rel="noopener noreferrer" 
-          className="text-xs text-stone-400 hover:text-stone-600 transition-colors"
+          className="block text-xs text-stone-400 hover:text-stone-600 transition-colors uppercase tracking-wider"
         >
           Fuente: embalses.net
         </a>
