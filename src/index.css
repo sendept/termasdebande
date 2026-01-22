@@ -1,6 +1,12 @@
+@import url('https://fonts.cdnfonts.com/css/helvetica-neue-55');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.font-helvetica {
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+}
 
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
 All colors MUST be HSL.
