@@ -51,9 +51,9 @@ const Index = () => {
   const waterLevelPercentage = percentage || 0;
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-100 font-helvetica">
+    <div className="min-h-screen flex flex-col bg-white font-helvetica">
       {/* Language Switcher */}
-      <div className="flex justify-end p-4 gap-3 text-base">
+      <div className="flex justify-end p-4 gap-2 text-sm">
         <span className="text-blue-500 cursor-pointer hover:underline">GL</span>
         <span className="text-blue-500 cursor-pointer hover:underline">ES</span>
         <span className="text-blue-500 cursor-pointer hover:underline">PT</span>
@@ -61,26 +61,26 @@ const Index = () => {
       </div>
 
       {/* Header */}
-      <header className="text-center px-6 pt-6 pb-10">
-        <h1 className="text-4xl md:text-5xl font-bold text-blue-500 mb-4">
+      <header className="text-center px-6 pt-4 pb-8">
+        <h1 className="text-3xl md:text-4xl font-bold text-blue-500 mb-3">
           Termas de Bande
         </h1>
-        <p className="text-base md:text-lg text-gray-500">
+        <p className="text-sm md:text-base text-gray-400">
           Comprueba si termas estan abiertas<br />
           para poder visitarlas
         </p>
       </header>
 
       {/* Status Card */}
-      <div className="px-6 mb-8">
-        <div className="bg-white border-2 border-gray-200 rounded-2xl p-6 md:p-8 max-w-xl mx-auto shadow-sm">
-          <div className="flex items-center gap-3 mb-2">
-            <span className={`w-4 h-4 rounded-full ${isFlooded ? 'bg-red-500' : 'bg-blue-500'}`}></span>
-            <span className={`text-3xl md:text-4xl font-bold ${isFlooded ? 'text-red-500' : 'text-blue-500'}`}>
+      <div className="px-6 mb-6">
+        <div className="bg-white border border-gray-200 rounded-xl p-5 max-w-md mx-auto">
+          <div className="flex items-center gap-2 mb-1">
+            <span className={`w-3 h-3 rounded-full ${isFlooded ? 'bg-red-500' : 'bg-green-500'}`}></span>
+            <span className={`text-2xl md:text-3xl font-bold ${isFlooded ? 'text-red-500' : 'text-green-500'}`}>
               {isFlooded ? 'Cerradas' : 'Abiertas'}
             </span>
           </div>
-          <p className="text-gray-400 text-sm md:text-base ml-7">
+          <p className="text-gray-400 text-xs md:text-sm ml-5">
             Última actualización: {formatLastUpdated()}
           </p>
         </div>
@@ -96,24 +96,24 @@ const Index = () => {
       </div>
 
       {/* Water Level Info Card */}
-      <div className="px-6 py-10">
-        <div className="bg-white border-2 border-gray-200 rounded-2xl overflow-hidden max-w-xl mx-auto shadow-sm">
+      <div className="px-6 py-8">
+        <div className="bg-white border border-gray-200 rounded-xl overflow-hidden max-w-md mx-auto">
           {/* Blue Header */}
-          <div className="bg-blue-500 text-white p-6">
-            <div className="flex items-center gap-3 mb-2">
-              <span className="w-4 h-4 rounded-full bg-white"></span>
-              <p className="text-2xl md:text-3xl font-bold">
+          <div className="bg-blue-500 text-white p-5">
+            <div className="flex items-center gap-2 mb-1">
+              <span className="w-3 h-3 rounded-full bg-white"></span>
+              <p className="text-xl md:text-2xl font-bold">
                 {waterLevelPercentage.toFixed(1).replace('.', ',')}% nivel de agua de embalse
               </p>
             </div>
-            <p className="text-blue-100 text-sm md:text-base ml-7">
+            <p className="text-blue-100 text-xs md:text-sm ml-5">
               Última actualización: {formatLastUpdated()}
             </p>
           </div>
           
           {/* Info Text */}
-          <div className="p-6 text-base md:text-lg text-gray-600 leading-relaxed">
-            <p className="mb-3">
+          <div className="p-5 text-sm md:text-base text-gray-500 leading-relaxed">
+            <p className="mb-2">
               Las termas de Bande están abiertas por temporada. A veces se encuentran inundadas 
               por el embalse cercano. Esta web monitoriza el nivel del agua para que sepas cuándo visitarlas. 
               El acceso a las termas es gratuito. La temperatura del agua varía entre 36 y 48 grados. 
@@ -132,8 +132,8 @@ const Index = () => {
       </div>
 
       {/* Location Link */}
-      <div className="px-6 pb-6 text-center">
-        <p className="text-base md:text-lg text-gray-500">
+      <div className="px-6 pb-4 text-center">
+        <p className="text-sm md:text-base text-gray-400">
           Las termas romanas de Bande se encuentran en{' '}
           <a 
             href={MAPS_URL}
@@ -147,11 +147,11 @@ const Index = () => {
       </div>
 
       {/* Footer with Logo */}
-      <footer className="px-6 py-10">
+      <footer className="px-6 py-8">
         <img 
           src={escudoBande} 
           alt="Escudo de Bande" 
-          className="h-24 md:h-32 w-auto"
+          className="h-20 md:h-24 w-auto"
         />
       </footer>
     </div>
