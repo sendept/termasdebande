@@ -62,7 +62,7 @@ const Index = () => {
 
       {/* Header */}
       <header className="text-center px-6 pt-4 pb-8">
-        <h1 className="text-3xl md:text-4xl font-bold text-blue-500 mb-3">
+        <h1 className="text-3xl md:text-4xl font-bold text-black mb-3 font-helvetica">
           Termas de Bande
         </h1>
         <p className="text-sm md:text-base text-gray-400">
@@ -71,18 +71,20 @@ const Index = () => {
         </p>
       </header>
 
-      {/* Status Card */}
+      {/* Status Card - Gray outer box, white inner box */}
       <div className="px-6 mb-6">
-        <div className="bg-white border border-gray-200 rounded-xl p-5 max-w-md mx-auto">
-          <div className="flex items-center gap-2 mb-1">
-            <span className={`w-3 h-3 rounded-full ${isFlooded ? 'bg-red-500' : 'bg-green-500'}`}></span>
-            <span className={`text-2xl md:text-3xl font-bold ${isFlooded ? 'text-red-500' : 'text-green-500'}`}>
-              {isFlooded ? 'Cerradas' : 'Abiertas'}
-            </span>
+        <div className="bg-gray-100 rounded-2xl p-4 max-w-md mx-auto">
+          <div className="bg-white rounded-xl p-5">
+            <div className="flex items-center gap-2 mb-1">
+              <span className={`w-3 h-3 rounded-full ${isFlooded ? 'bg-red-500' : 'bg-green-500'}`}></span>
+              <span className={`text-2xl md:text-3xl font-bold ${isFlooded ? 'text-red-500' : 'text-green-500'}`}>
+                {isFlooded ? 'Cerradas' : 'Abiertas'}
+              </span>
+            </div>
+            <p className="text-gray-400 text-xs md:text-sm ml-5">
+              Última actualización: {formatLastUpdated()}
+            </p>
           </div>
-          <p className="text-gray-400 text-xs md:text-sm ml-5">
-            Última actualización: {formatLastUpdated()}
-          </p>
         </div>
       </div>
 
