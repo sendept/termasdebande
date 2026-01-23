@@ -97,42 +97,51 @@ const Index = () => {
 
       {/* Water Level Info Card */}
       <div className="px-6 py-8">
-        <div className="bg-white border border-gray-200 rounded-xl overflow-hidden max-w-md mx-auto">
-          {/* Blue Header */}
-          <div className="bg-blue-500 text-white p-5">
-            <div className="flex items-center gap-2 mb-1">
-              <span className="w-3 h-3 rounded-full bg-white"></span>
-              <p className="text-xl md:text-2xl font-bold">
-                {waterLevelPercentage.toFixed(1).replace('.', ',')}% nivel de agua de embalse
-              </p>
+        <div className="bg-gray-100 rounded-2xl p-4 max-w-xl mx-auto">
+          <div className="bg-white rounded-xl p-5">
+            {/* Green Title */}
+            <h2 className="text-xl md:text-2xl font-bold text-green-500 mb-2">
+              {waterLevelPercentage.toFixed(1).replace('.', ',')}% nivel de agua de embalse
+            </h2>
+            
+            {/* Threshold Bar */}
+            <div className="mb-4">
+              <div className="relative h-5 bg-gray-100 rounded border border-gray-200">
+                <div 
+                  className="absolute left-0 top-0 h-full bg-blue-100 rounded-l"
+                  style={{ width: `${Math.min(waterLevelPercentage, 100)}%` }}
+                ></div>
+                <div 
+                  className="absolute top-0 h-full border-r-2 border-blue-500"
+                  style={{ left: '70%' }}
+                ></div>
+                <span className="absolute left-1 top-0 h-full flex items-center text-xs text-gray-500">
+                  Umbral de inundación: 70%
+                </span>
+              </div>
             </div>
-            <p className="text-blue-100 text-xs md:text-sm ml-5">
-              Última actualización: {formatLastUpdated()}
-            </p>
-          </div>
-          
-          {/* Info Text */}
-          <div className="p-5 text-sm md:text-base text-gray-500 leading-relaxed">
-            <p className="mb-2">
+            
+            {/* Info Text */}
+            <p className="text-sm md:text-base text-gray-600 leading-relaxed">
               Las termas de Bande están abiertas por temporada. A veces se encuentran inundadas 
               por el embalse cercano. Esta web monitoriza el nivel del agua para que sepas cuándo visitarlas. 
               El acceso a las termas es gratuito. La temperatura del agua varía entre 36 y 48 grados. 
-              Los datos sobre el nivel del agua provienen de estaciones de monitorización locales.
+              Los datos sobre el nivel del agua provienen de estaciones de monitorización locales<br />
+              <a 
+                href="https://www.embalses.net/pantano-706-las-conchas.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 hover:underline"
+              >
+                www.embalses.net
+              </a>
             </p>
-            <a 
-              href="https://www.embalses.net/pantano-706-las-conchas.html"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-500 hover:underline"
-            >
-              www.embalses.net
-            </a>
           </div>
         </div>
       </div>
 
       {/* Location Link */}
-      <div className="px-6 pb-4 text-center">
+      <div className="px-6 pb-6 text-center">
         <p className="text-sm md:text-base text-gray-400">
           Las termas romanas de Bande se encuentran en{' '}
           <a 
@@ -146,12 +155,12 @@ const Index = () => {
         </p>
       </div>
 
-      {/* Footer with Logo */}
-      <footer className="px-6 py-8">
+      {/* Footer with Logo - Centered */}
+      <footer className="px-6 py-8 flex justify-center">
         <img 
           src={escudoBande} 
           alt="Escudo de Bande" 
-          className="h-20 md:h-24 w-auto"
+          className="h-24 md:h-28 w-auto"
         />
       </footer>
     </div>
