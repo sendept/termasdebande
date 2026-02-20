@@ -5,6 +5,10 @@
 
 set -e  # Stop on any error
 
+# Load nvm so npm is available
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
 REMOTE_USER="dh_termasdebande"
 REMOTE_HOST="iad1-shared-e1-32.dreamhost.com"
 REMOTE_PATH="~/termasdebande.com/"
