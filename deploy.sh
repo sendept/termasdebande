@@ -9,10 +9,10 @@ set -e  # Stop on any error
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
-REMOTE_USER="dh_termasdebande"
-REMOTE_HOST="iad1-shared-e1-32.dreamhost.com"
+# "termasdebande" is a host alias defined in ~/.ssh/config
+# (DreamHost user, server and SSH key), so no password is needed.
+REMOTE="termasdebande"
 REMOTE_PATH="~/termasdebande.com/"
-PORT=22
 
 echo "🔄 Pulling latest code from GitHub..."
 git pull
@@ -24,6 +24,6 @@ echo "🔨 Building..."
 npm run build
 
 echo "🚀 Uploading to DreamHost..."
-scp -P $PORT -r dist/* $REMOTE_USER@$REMOTE_HOST:$REMOTE_PATH
+scp -r dist/* $REMOTE:$REMOTE_PATH
 
 echo "✅ Done! Site is live at https://termasdebande.com"
