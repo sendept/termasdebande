@@ -13,6 +13,10 @@ interface Translations {
   dataSource: string;
   location: string;
   locationLink: string;
+  cookieText: string;
+  cookieAccept: string;
+  cookieReject: string;
+  cookieSettings: string;
 }
 
 const translations: Record<Language, Translations> = {
@@ -27,6 +31,10 @@ const translations: Record<Language, Translations> = {
     dataSource: 'www.embalses.net',
     location: 'As termas romanas de Bande atópanse en',
     locationLink: 'esta ubicación',
+    cookieText: 'Usamos cookies de Google Analytics para contar as visitas a esta web. Só se activan se as aceptas.',
+    cookieAccept: 'Aceptar',
+    cookieReject: 'Rexeitar',
+    cookieSettings: 'Cookies',
   },
   es: {
     title: 'Termas de Bande',
@@ -39,6 +47,10 @@ const translations: Record<Language, Translations> = {
     dataSource: 'www.embalses.net',
     location: 'Las termas romanas de Bande se encuentran en',
     locationLink: 'esta ubicación',
+    cookieText: 'Usamos cookies de Google Analytics para contar las visitas a esta web. Solo se activan si las aceptas.',
+    cookieAccept: 'Aceptar',
+    cookieReject: 'Rechazar',
+    cookieSettings: 'Cookies',
   },
   pt: {
     title: 'Termas de Bande',
@@ -51,6 +63,10 @@ const translations: Record<Language, Translations> = {
     dataSource: 'www.embalses.net',
     location: 'As termas romanas de Bande encontram-se em',
     locationLink: 'esta localização',
+    cookieText: 'Usamos cookies do Google Analytics para contar as visitas a este site. Só são ativados se os aceitar.',
+    cookieAccept: 'Aceitar',
+    cookieReject: 'Rejeitar',
+    cookieSettings: 'Cookies',
   },
   en: {
     title: 'Bande Hot Springs',
@@ -63,6 +79,10 @@ const translations: Record<Language, Translations> = {
     dataSource: 'www.embalses.net',
     location: 'The Roman hot springs of Bande are located at',
     locationLink: 'this location',
+    cookieText: 'We use Google Analytics cookies to count visits to this site. They are only enabled if you accept.',
+    cookieAccept: 'Accept',
+    cookieReject: 'Reject',
+    cookieSettings: 'Cookies',
   },
 };
 

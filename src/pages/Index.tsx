@@ -1,6 +1,9 @@
 import { useWaterLevel } from "@/hooks/useWaterLevel";
 import { useTranslations, Language } from "@/hooks/useTranslations";
+import { useState } from "react";
 import { Loader2 } from "lucide-react";
+import CookieBanner from "@/components/CookieBanner";
+import { clearConsent } from "@/lib/analytics";
 import termasOpen from "@/assets/termas-open.png";
 import termasFlooded from "@/assets/termas-flooded.png";
 import escudoBande from "@/assets/escudo-bande.png";
@@ -18,6 +21,7 @@ const languages: { code: Language; label: string }[] = [
 const Index = () => {
   const { percentage, loading, error, lastUpdated } = useWaterLevel();
   const { t, language, changeLanguage } = useTranslations();
+  const [cookieReopen, setCookieReopen] = useState(0);
   
   const isFlooded = percentage !== null && percentage >= FLOOD_THRESHOLD;
 
@@ -157,6 +161,22 @@ const Index = () => {
           className="h-24 md:h-28 w-auto"
         />
       </footer>
+
+      <div className="pb-6 text-center">
+        <button
+          onClick={() => { clearConsent(); setCookieReopen((n) => n + 1); }}
+          className="text-xs text-gray-400 hover:underline"
+        >
+          {t.cookieSettings}
+        </button>
+      </div>
+
+      <CookieBanner
+        text={t.cookieText}
+        acceptLabel={t.cookieAccept}
+        rejectLabel={t.cookieReject}
+        reopenSignal={cookieReopen}
+      />
     </div>
   );
 };
