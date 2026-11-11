@@ -5,7 +5,7 @@ import termasOpen from "@/assets/termas-open.png";
 import termasFlooded from "@/assets/termas-flooded.png";
 import escudoBande from "@/assets/escudo-bande.png";
 
-const FLOOD_THRESHOLD = 70;
+const FLOOD_THRESHOLD = 55;
 const MAPS_URL = "https://www.google.com/maps/place/Roman+Caldaria+of+Bande+(Hotsprings)/@41.9793225,-7.9818843,130m/data=!3m1!1e3!4m14!1m7!3m6!1s0xd2547bff013a7c7:0xe8fceefffe603cf5!2sRoman+Caldaria+of+Bande+(Hotsprings)!8m2!3d41.9793225!4d-7.9818843!16s%2Fg%2F11b6v6mh3k!3m5!1s0xd2547bff013a7c7:0xe8fceefffe603cf5!8m2!3d41.9793225!4d-7.9818843!16s%2Fg%2F11b6v6mh3k?hl=en&entry=ttu";
 
 const languages: { code: Language; label: string }[] = [
@@ -133,11 +133,8 @@ const Index = () => {
                 ></div>
                 <div 
                   className="absolute top-0 h-full border-r-2 border-blue-500"
-                  style={{ left: '70%' }}
+                  style={{ left: `${FLOOD_THRESHOLD}%` }}
                 ></div>
-                <span className="absolute left-1 top-0 h-full flex items-center text-xs text-gray-500">
-                  {t.floodThreshold}
-                </span>
               </div>
             </div>
             
