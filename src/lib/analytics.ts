@@ -1,5 +1,5 @@
 // Google Analytics 4, loaded on every visit.
-export const GA_MEASUREMENT_ID = "G-TZEPNMBVWC";
+export const GA_MEASUREMENT_ID = "G-SEREJ8747J";
 
 declare global {
   interface Window {
