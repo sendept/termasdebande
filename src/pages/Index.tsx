@@ -58,7 +58,6 @@ const Index = () => {
     );
   }
 
-  const waterLevelPercentage = percentage || 0;
   const statusColor = isFlooded ? 'text-red-500' : 'text-green-500';
   const dotColor = isFlooded ? 'bg-red-500' : 'bg-green-500';
 
@@ -119,25 +118,6 @@ const Index = () => {
       <div className="px-6 py-8">
         <div className="bg-gray-100 rounded-2xl p-4 max-w-xl mx-auto">
           <div className="bg-white rounded-xl p-5">
-            {/* Green/Red Title */}
-            <h2 className={`text-xl md:text-2xl font-bold ${statusColor} mb-2`}>
-              {waterLevelPercentage.toFixed(1).replace('.', ',')}{t.waterLevel}
-            </h2>
-            
-            {/* Threshold Bar */}
-            <div className="mb-4">
-              <div className="relative h-5 bg-gray-100 rounded border border-gray-200">
-                <div 
-                  className={`absolute left-0 top-0 h-full rounded-l ${isFlooded ? 'bg-red-100' : 'bg-blue-100'}`}
-                  style={{ width: `${Math.min(waterLevelPercentage, 100)}%` }}
-                ></div>
-                <div 
-                  className="absolute top-0 h-full border-r-2 border-blue-500"
-                  style={{ left: `${FLOOD_THRESHOLD}%` }}
-                ></div>
-              </div>
-            </div>
-            
             {/* Info Text */}
             <p className="text-sm md:text-base text-gray-600 leading-relaxed">
               {t.description}<br />
